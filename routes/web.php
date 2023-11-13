@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivewireTestController;
+use App\Http\Controllers\AlpineTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::middleware([
 Route::prefix('livewire-test')->group(function () {
     Route::get('index', [LivewireTestController::class, 'index']);
 });
+
+Route::get('alpine-test/index', [AlpineTestController::class, 'index']); 
