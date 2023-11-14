@@ -29,6 +29,18 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::prefix('manager')
+->middleware('can:manager-higher')->group(function(){
+ Route::get('index', function () {
+ dd('manager');
+ });
+});
+Route::middleware('can:user-higher')->group(function(){
+ Route::get('index', function () {
+ dd('user');
+ });
+});
+
 Route::prefix('livewire-test')->group(function () {
     Route::get('index', [LivewireTestController::class, 'index']);
 });
